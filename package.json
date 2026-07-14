@@ -1,0 +1,12 @@
+{
+	"name": "wildcard-task-app",
+	"private": true,
+	"version": "0.0.0",
+	"scripts": {
+		"frontend:install": "npm --prefix frontend install",
+		"frontend:dev": "npm --prefix frontend run dev",
+		"frontend:check": "npm --prefix frontend run check",
+		"frontend:build": "npm --prefix frontend run build",
+		"frontend:preview": "npm --prefix frontend run preview"
+	}
+}

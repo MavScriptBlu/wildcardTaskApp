@@ -1,0 +1,37 @@
+## OS files
+.DS_Store
+Thumbs.db
+
+## Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+## Logs
+*.log
+
+## Environment files
+.env
+.env.*
+!.env.example
+
+## node
+node_modules/
+.svelte-kit/
+vendor/
+
+## Build outputs
+dist/
+build/
+out/
+target/
+
+## Python
+__pycache__/
+*.pyc
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/

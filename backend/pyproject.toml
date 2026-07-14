@@ -1,0 +1,14 @@
+[project]
+name = "task-app-backend"
+version = "0.1.0"
+description = "FastAPI backend for a task management application"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "sqlalchemy",
+    "psycopg2-binary",
+    "alembic",
+    "pydantic",
+    "python-dotenv",
+]

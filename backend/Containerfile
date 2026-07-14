@@ -1,0 +1,17 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+
+# copy just the requirements first so podman can cache this layer
+# (means it won't reinstall everything every time you change one line of code)
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# now copy the rest of the backend code
+COPY . .
+
+EXPOSE 8000
+
+# Apply any pending migrations before the API starts, so a fresh database
+# gets its schema created automatically instead of erroring on first request.
+CMD ["sh", "-c", "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000"]
