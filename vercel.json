@@ -5,7 +5,8 @@
 			"framework": "sveltekit-1"
 		},
 		"backend": {
-			"root": "backend"
+			"root": "backend",
+			"entrypoint": "app.main:app"
 		}
 	},
 	"rewrites": [
