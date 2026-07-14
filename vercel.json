@@ -1,12 +1,28 @@
 {
-  "experimentalServices": {
-    "frontend": {
-      "entrypoint": "frontend",
-      "routePrefix": "/"
-    },
-    "backend": {
-      "entrypoint": "backend/app/main.py",
-      "routePrefix": "/api"
-    }
-  }
+	"services": {
+		"frontend": {
+			"root": "frontend",
+			"framework": "sveltekit-1"
+		},
+		"backend": {
+			"root": "backend",
+			"entrypoint": "app.main:app"
+		}
+	},
+	"rewrites": [
+		{
+			"source": "/api(/.*)?",
+			"destination": {
+				"type": "service",
+				"service": "backend"
+			}
+		},
+		{
+			"source": "/(.*)",
+			"destination": {
+				"type": "service",
+				"service": "frontend"
+			}
+		}
+	]
 }

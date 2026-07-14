@@ -20,10 +20,6 @@ All notable changes to this project are documented here. Format follows [Keep a 
 - `entrypoint` (`app.main:app`) for the backend Vercel service, so Vercel's Python runtime can locate the FastAPI app instance.
 - `@sveltejs/adapter-vercel` as a frontend dependency. `svelte.config.js` now picks `adapter-vercel` when building on Vercel (via `process.env.VERCEL`) and falls back to `adapter-node` everywhere else, so the same codebase still produces the standalone Node server `dev.sh` and the container expect.
 
-### Changed
-
-- `vercel.json` switched from the `services` config key to `experimentalServices`, with per-service `entrypoint`/`routePrefix` fields replacing `root`/`framework` and the top-level `rewrites` block.
-
 ### Fixed
 
 - Syntax error in the `DATABASE_URL` assignment in backend config.
