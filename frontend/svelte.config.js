@@ -1,13 +1,15 @@
 /** @format */
 
-import adapter from "@sveltejs/adapter-node";
+import adapterNode from "@sveltejs/adapter-node";
+import adapterVercel from "@sveltejs/adapter-vercel";
 
 /** @type {import('sveltejs/kit').Config} */
 const config = {
 	kit: {
-		// adapter-node builds a small standalone node server, which is
-		// exactly what we want for running this inside a container
-		adapter: adapter(),
+		// adapter-node builds a small standalone node server for running
+		// inside our container; on Vercel (which sets VERCEL at build time)
+		// we need adapter-vercel's Build Output API format instead
+		adapter: process.env.VERCEL ? adapterVercel() : adapterNode(),
 	},
 };
 
